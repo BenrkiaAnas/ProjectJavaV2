@@ -3,20 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package miniprojectv2;
 
 /**
  *
  * @author The Black Wolf
  */
-public class Miniprojectv2 {
-    
+public class MiniProjectV2 {
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
     }
-    
     
 }

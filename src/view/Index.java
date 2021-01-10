@@ -160,7 +160,7 @@ public class Index extends javax.swing.JFrame {
                  }
                  else if(jComboBox1.getSelectedIndex()==1)
                  {
-                     Profindex pi=new Profindex();
+                     home_prof pi=new home_prof();
                      pi.setVisible(true);
                      this.setVisible(false);
                      

@@ -5,6 +5,7 @@
  */
 package Data;
 
+import Classes.Cour;
 import Classes.Personne;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -28,7 +29,7 @@ public class PersonneDao {
     {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/platforme", "root", "");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/platforme", "root", "");
             req = conn.createStatement();
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println(e.getMessage());
@@ -97,6 +98,29 @@ public class PersonneDao {
         }
         
         return p;
+    }
+    
+    public ArrayList<Personne> getEtudiantsByCour(Cour cour)
+    {
+        ArrayList<Personne> etudiants = new ArrayList<Personne>();
+        
+        try {
+            String requete = "select * from participation p left outer join cours c on p.id_cours = c.id_cours left outer join personne per on p.id_etud = per.id_personne where c.id_cours = "+cour.getId_cours();
+            ResultSet rst;
+            rst = req.executeQuery(requete);
+            while (rst.next()) {  
+                
+                Personne personne = new Personne(rst.getInt("id_personne"), rst.getString("nom_personne"), rst.getString("prenom_personne"));
+                
+                
+                etudiants.add(personne);
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CourProfDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return etudiants;
     }
     
 }

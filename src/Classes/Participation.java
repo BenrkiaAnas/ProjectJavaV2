@@ -14,7 +14,9 @@ import java.util.Objects;
 public class Participation {
     Cour cour;
     Personne etudiants;
-    String note = null;
+    Float note = null;
+    
+    
 
     public Participation(Cour cour, Personne etudiants) {
         this.cour = cour;
@@ -37,13 +39,17 @@ public class Participation {
         this.etudiants = etudiants;
     }
 
-    public String getNote() {
+    public Float getNote() {
         return note;
     }
 
-    public void setNote(String note) {
+    public void setNote(Float note) {
         this.note = note;
     }
+    
+    
+
+    
 
     @Override
     public int hashCode() {
@@ -77,6 +83,10 @@ public class Participation {
     public String toString() {
         return "Participation{" + "cour=" + cour + ", etudiants=" + etudiants + ", note=" + note + '}';
     }
+    
+    
+
+   
 
     
     
