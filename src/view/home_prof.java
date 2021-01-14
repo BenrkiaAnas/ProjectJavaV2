@@ -5,6 +5,9 @@
  */
 package view;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 /**
  *
  * @author ahmed
@@ -16,6 +19,9 @@ public class home_prof extends javax.swing.JFrame {
      */
     public home_prof() {
         initComponents();
+         Toolkit toolkit=getToolkit();
+        Dimension size=toolkit.getScreenSize();
+        setLocation(size.width/2-getWidth()/2,size.height/2-getHeight()/2);
     }
 
     /**

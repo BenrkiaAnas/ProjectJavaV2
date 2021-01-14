@@ -11,6 +11,8 @@ import Classes.Personne;
 import Data.CourProfDao;
 import Data.ParticipationDao;
 import Data.PersonneDao;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.table.DefaultTableModel;
@@ -30,6 +32,9 @@ public class note_prof extends javax.swing.JFrame {
         initComponents();
         remplireCours();
         getInfoToTable();
+         Toolkit toolkit=getToolkit();
+        Dimension size=toolkit.getScreenSize();
+        setLocation(size.width/2-getWidth()/2,size.height/2-getHeight()/2);
     }
     
     public void getInfoToTable()
