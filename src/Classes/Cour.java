@@ -13,6 +13,9 @@ public class Cour {
     
     Integer id_cours;
     String nom_cours;
+    String description;
+    Niveau niveau;
+    Filiere filiere;
     Personne id_create;
     Personne id_ens;
 
@@ -37,6 +40,45 @@ public class Cour {
         this.id_create = id_create;
         this.id_ens = id_ens;
     }
+
+    public Cour(String nom_cours, String description, Niveau niveau, Filiere filiere, Personne id_create, Personne id_ens) {
+        this.nom_cours = nom_cours;
+        this.description = description;
+        this.niveau = niveau;
+        this.filiere = filiere;
+        this.id_create = id_create;
+        this.id_ens = id_ens;
+    }
+
+    
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Niveau getNiveau() {
+        return niveau;
+    }
+
+    public void setNiveau(Niveau niveau) {
+        this.niveau = niveau;
+    }
+
+    public Filiere getFiliere() {
+        return filiere;
+    }
+
+    public void setFiliere(Filiere filiere) {
+        this.filiere = filiere;
+    }
+
+    
+    
+    
 
     public Integer getId_cours() {
         return id_cours;
@@ -75,11 +117,9 @@ public class Cour {
 
     @Override
     public String toString() {
-        return "Cour{" + "id_cours=" + id_cours + ", nom_cours=" + nom_cours + ", id_create=" + id_create + ", id_ens=" + id_ens + '}';
+        return "Cour{" + "id_cours=" + id_cours + ", nom_cours=" + nom_cours + ", description=" + description + ", niveau=" + niveau + ", filiere=" + filiere + ", id_create=" + id_create + ", id_ens=" + id_ens + '}';
     }
-    
-    
-    
+
     
     
     

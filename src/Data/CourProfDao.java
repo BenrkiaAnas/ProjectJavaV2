@@ -28,7 +28,7 @@ public class CourProfDao {
     {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/platforme", "root", "");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/platforme", "root", "");
             req = conn.createStatement();
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println(e.getMessage());
@@ -39,7 +39,7 @@ public class CourProfDao {
     
     public void ajouter(Cour cour)
     {
-        String requete = "INSERT INTO cours (nom_cours,id_create,id_ens) values ('"+cour.getNom_cours()+"','"+cour.getId_create().getId()+"','"+cour.getId_ens().getId()+"');";
+        String requete = "INSERT INTO cours (nom_cours,id_create,id_ens,description,id_niveau,id_filiere) values ('"+cour.getNom_cours()+"','"+cour.getId_create().getId()+"','"+cour.getId_ens().getId()+"','"+cour.getDescription()+"','"+cour.getNiveau().getId_nv()+"','"+cour.getFiliere().getId_filiere()+"');";
         try {
             req.executeUpdate(requete);
         } catch (SQLException ex) {

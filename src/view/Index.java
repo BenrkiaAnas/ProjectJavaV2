@@ -143,7 +143,7 @@ public class Index extends javax.swing.JFrame {
         try
         {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/platforme","root","");
+            Connection con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3307/platforme","root","");
             String query="SELECT * FROM personne WHERE login=? AND pwd=? AND id_role=?";
             PreparedStatement pst=con.prepareStatement(query);
             pst.setString(1,login.getText());

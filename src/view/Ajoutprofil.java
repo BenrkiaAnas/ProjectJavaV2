@@ -282,7 +282,7 @@ public class Ajoutprofil extends javax.swing.JFrame {
         jTextField6.setText("");*/
          try {
         Class.forName("com.mysql.jdbc.Driver");
-            Connection con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/platforme","root","");
+            Connection con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3307/platforme","root","");
             Statement st=con.createStatement();
             String query="select * from personne";
             ResultSet rs=st.executeQuery(query);
@@ -311,7 +311,7 @@ public class Ajoutprofil extends javax.swing.JFrame {
        
         try {
         Class.forName("com.mysql.jdbc.Driver");
-            Connection con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/platforme","root","");
+            Connection con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3307/platforme","root","");
             String query=" INSERT INTO personne VALUES (?,?,?,?,?,?)";
             PreparedStatement pst=con.prepareStatement(query);
             
@@ -361,7 +361,7 @@ public class Ajoutprofil extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
         Class.forName("com.mysql.jdbc.Driver");
-            Connection con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/platforme","root","");
+            Connection con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3307/platforme","root","");
             String query=" update personne set  nom_personne=?, prenom_personne=?, login=?, pwd=?, id_role=? where id_personne=? ";
             PreparedStatement pst=con.prepareStatement(query);
           
@@ -409,7 +409,7 @@ public class Ajoutprofil extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
         Class.forName("com.mysql.jdbc.Driver");
-            Connection con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/platforme","root","");
+            Connection con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3307/platforme","root","");
             String query=" delete from personne where id_personne=? ";
             PreparedStatement pst=con.prepareStatement(query);
          pst.setInt(1,Integer.parseInt(jTextField6.getText()));
