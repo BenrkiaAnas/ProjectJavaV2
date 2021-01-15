@@ -52,7 +52,27 @@ public class PersonneDao {
         }        
         return p;      
     }*/
-    
+    public ArrayList<Personne> getAllprofs()
+    {
+        ArrayList<Personne> profs = new ArrayList<Personne>();
+        
+        try {
+            String requete = "select * from personne where id_role=2";
+            ResultSet rst;
+            rst = req.executeQuery(requete);
+            while (rst.next()) {                
+                
+                Personne prof = new Personne(rst.getInt("id_personne "), rst.getString("nom_personne"),rst.getString("prenom_personne"),rst.getString("login"),rst.getString("pwd"),rst.getInt("id_role"));
+                
+                profs.add(prof);
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CourProfDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return profs;
+    }
     public Personne findPersonne(int id)
     {
         Personne p = new Personne();
