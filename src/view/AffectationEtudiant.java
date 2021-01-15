@@ -219,6 +219,7 @@ public class AffectationEtudiant extends javax.swing.JFrame {
         
         ///////////////////////////////////
         try {
+            
             PersonneDao personneDao = new PersonneDao();
             personneDao.seConnecter();
 
@@ -226,9 +227,9 @@ public class AffectationEtudiant extends javax.swing.JFrame {
             courProfDao.seConnecter();
             String nom_cour = jComboBox1.getSelectedItem().toString();
             Cour cour = courProfDao.getCourByName(nom_cour);
+            
             ArrayList<Personne> etudiants =  personneDao.getAllEtudiants(cour);
             
-            System.out.println(nom_cour);
             DefaultListModel liste = new DefaultListModel();
 
 

@@ -17,6 +17,12 @@ public class Filiere {
 
     public Filiere() {
     }
+
+    public Filiere(Integer id_filiere) {
+        this.id_filiere = id_filiere;
+    }
+    
+    
     
     
 

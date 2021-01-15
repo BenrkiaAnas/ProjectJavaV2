@@ -105,8 +105,13 @@ public class CourProfDao {
             ResultSet rst;
             rst = req.executeQuery(requete);
             rst.next();
+            Filiere filiere = new Filiere(rst.getInt("id_filiere"));
+            Niveau niveau = new Niveau(rst.getInt("id_niveau"));
             cour.setId_cours(rst.getInt("id_cours"));
             cour.setNom_cours(rst.getString("nom_cours"));
+            cour.setDescription(rst.getString("description"));
+            cour.setFiliere(filiere);
+            cour.setNiveau(niveau);
             
         } catch (SQLException ex) {
             Logger.getLogger(CourProfDao.class.getName()).log(Level.SEVERE, null, ex);

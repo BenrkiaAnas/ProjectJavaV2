@@ -17,6 +17,12 @@ public class Niveau {
 
     public Niveau() {
     }
+
+    public Niveau(Integer id_nv) {
+        this.id_nv = id_nv;
+    }
+    
+    
     
     
 

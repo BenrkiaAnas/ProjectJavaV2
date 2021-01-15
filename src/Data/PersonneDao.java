@@ -77,7 +77,7 @@ public class PersonneDao {
         ArrayList<Personne> etudiants = new ArrayList<Personne>();
         
         try {
-            String requete = "select * from etudiant_nv env p left outer join personne on env.id_etud = p.id_personne where env.id_nv = "+cour.getNiveau().getId_nv()+" and env.id_filiere = "+cour.getFiliere().getId_filiere();
+            String requete = "select * from etudiant_nv env left outer join personne p on env.id_etud = p.id_personne where env.id_nv = "+cour.getNiveau().getId_nv()+" and env.id_filiere = "+cour.getFiliere().getId_filiere();
             ResultSet rst;
             rst = req.executeQuery(requete);
             while (rst.next()) {       
