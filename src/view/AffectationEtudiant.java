@@ -34,14 +34,11 @@ public class AffectationEtudiant extends javax.swing.JFrame {
     public void remplireCoursEtudiants()
     {
         jComboBox1.removeAllItems();
+
         jList1.removeAll();
         CourProfDao coursDao = new CourProfDao();
-        coursDao.seConnecter();
+        coursDao.seConnecter();  
         
-        PersonneDao persondao = new PersonneDao();
-        persondao.seConnecter();
-        
-        ArrayList<Personne> etudiants =  persondao.getAllEtudiants();
         
         ArrayList<Cour> cours =  coursDao.findCoursByProf(2);
         
@@ -51,20 +48,6 @@ public class AffectationEtudiant extends javax.swing.JFrame {
             jComboBox1.addItem(cours.get(i).getNom_cours());
             
         }
-        
-        
-        
-        DefaultListModel liste = new DefaultListModel();
-        
-        for (int i = 0; i < etudiants.size(); i++) {
-            
-            liste.addElement(etudiants.get(i).getPrenom());
-            
-            
-            
-        }
-        
-        jList1.setModel(liste);
         
     }
 
@@ -95,6 +78,11 @@ public class AffectationEtudiant extends javax.swing.JFrame {
         jLabel3.setText("Etudiant");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox1ItemStateChanged(evt);
+            }
+        });
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -166,7 +154,7 @@ public class AffectationEtudiant extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(46, 46, 46)
                 .addComponent(jButton1)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
 
         pack();
@@ -183,6 +171,8 @@ public class AffectationEtudiant extends javax.swing.JFrame {
         
         PersonneDao personneDao = new PersonneDao();
         personneDao.seConnecter();
+        
+        
         
         ParticipationDao participationDao = new ParticipationDao();
         participationDao.seConnecter();
@@ -218,6 +208,40 @@ public class AffectationEtudiant extends javax.swing.JFrame {
         CourProf courProf = new CourProf();
         courProf.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+        // TODO add your handling code here:
+        
+        ///////////////////////////////////
+        try {
+            PersonneDao personneDao = new PersonneDao();
+            personneDao.seConnecter();
+
+            CourProfDao courProfDao = new CourProfDao();
+            courProfDao.seConnecter();
+            String nom_cour = jComboBox1.getSelectedItem().toString();
+            Cour cour = courProfDao.getCourByName(nom_cour);
+            ArrayList<Personne> etudiants =  personneDao.getAllEtudiants(cour);
+            
+            System.out.println(nom_cour);
+            DefaultListModel liste = new DefaultListModel();
+
+
+            for (int i = 0; i < etudiants.size(); i++) {
+
+                liste.addElement(etudiants.get(i).getPrenom());
+
+
+
+            }
+
+            jList1.setModel(liste);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        
+        
+    }//GEN-LAST:event_jComboBox1ItemStateChanged
 
     /**
      * @param args the command line arguments

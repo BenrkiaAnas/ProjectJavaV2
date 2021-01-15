@@ -6,6 +6,8 @@
 package Data;
 
 import Classes.Cour;
+import Classes.Filiere;
+import Classes.Niveau;
 import Classes.Personne;
 import java.sql.Statement;
 import java.sql.Connection;
@@ -52,12 +54,12 @@ public class CourProfDao {
         ArrayList<Cour> cours = new ArrayList<Cour>();
         
         try {
-            String requete = "select * from cours c left outer join personne p on c.id_create = p.id_personne";
+            String requete = "select * from cours c left outer join personne p on c.id_create = p.id_personne left outer join niveau n on c.id_niveau = n.id_nv left outer join filiere f on c.id_filiere = f.id_filiere";
             ResultSet rst;
             rst = req.executeQuery(requete);
             while (rst.next()) {                
                 
-                Cour cour = new Cour(rst.getString("nom_cours"), new Personne(rst.getInt("id_personne"), rst.getString("nom_personne"), rst.getString("prenom_personne")), new Personne(rst.getInt("id_personne"), rst.getString("nom_personne"), rst.getString("prenom_personne")));
+                Cour cour = new Cour(rst.getString("nom_cours"), rst.getString("description"), new Niveau(rst.getInt("id_nv"), rst.getString("nom_nv")), new Filiere(rst.getInt("id_filiere"), rst.getString("nom_filiere")), new Personne(rst.getInt("id_personne"), rst.getString("nom_personne"), rst.getString("prenom_personne")), new Personne(rst.getInt("id_personne"), rst.getString("nom_personne"), rst.getString("prenom_personne")));
                 
                 cours.add(cour);
                 

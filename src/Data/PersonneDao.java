@@ -57,12 +57,12 @@ public class PersonneDao {
         return p;
     }
     
-    public ArrayList<Personne> getAllEtudiants()
+    public ArrayList<Personne> getAllEtudiants(Cour cour)
     {
         ArrayList<Personne> etudiants = new ArrayList<Personne>();
         
         try {
-            String requete = "select * from personne where id_role = 3";
+            String requete = "select * from etudiant_nv env p left outer join personne on env.id_etud = p.id_personne where env.id_nv = "+cour.getNiveau().getId_nv()+" and env.id_filiere = "+cour.getFiliere().getId_filiere();
             ResultSet rst;
             rst = req.executeQuery(requete);
             while (rst.next()) {       
