@@ -13,6 +13,8 @@ import Data.CourProfDao;
 import Data.FiliereDao;
 import Data.NiveauDao;
 import Data.PersonneDao;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -31,6 +33,9 @@ public class CourProf extends javax.swing.JFrame {
         showCoursData();
         CourProfDao courDAO = new CourProfDao();
         courDAO.seConnecter();
+         Toolkit toolkit=getToolkit();
+        Dimension size=toolkit.getScreenSize();
+        setLocation(size.width/2-getWidth()/2,size.height/2-getHeight()/2); 
     } 
     
     

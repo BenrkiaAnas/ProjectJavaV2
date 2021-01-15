@@ -29,13 +29,28 @@ public class PersonneDao {
     {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/platforme", "root", "");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/platforme", "root", "");
             req = conn.createStatement();
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println(e.getMessage());
         }
         
         
+    }
+    public Personne findprof()
+    {
+         Personne p = new Personne();
+        try {
+            String requete = "select nom_personne from personne where id_role = 2";
+            ResultSet rst;
+            rst = req.executeQuery(requete);
+            rst.next();
+          
+            p.setNom(rst.getString("nom_personne"));        
+        } catch (SQLException ex) {
+            Logger.getLogger(CourProfDao.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+        return p;      
     }
     
     public Personne findPersonne(int id)
