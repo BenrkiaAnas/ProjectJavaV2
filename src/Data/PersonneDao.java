@@ -37,7 +37,7 @@ public class PersonneDao {
         
         
     }
-    public Personne findprof()
+  /*  public Personne findprof()
     {
          Personne p = new Personne();
         try {
@@ -51,7 +51,7 @@ public class PersonneDao {
             Logger.getLogger(CourProfDao.class.getName()).log(Level.SEVERE, null, ex);
         }        
         return p;      
-    }
+    }*/
     
     public Personne findPersonne(int id)
     {
