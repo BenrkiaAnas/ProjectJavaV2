@@ -73,6 +73,7 @@ public class PersonneDao {
         
         return profs;
     }
+    
     public Personne findPersonne(int id)
     {
         Personne p = new Personne();
@@ -91,7 +92,22 @@ public class PersonneDao {
         
         return p;
     }
-    
+    public Personne getpersonnebyname(String personnename)
+    {
+        Personne pr=new Personne();
+         try {
+            String requete = "select * from personne where nom_personne ='"+personnename+"'";
+            ResultSet rst;
+            rst = req.executeQuery(requete);
+            rst.next();
+            pr.setId(rst.getInt("id_personne"));
+            pr.setNom(rst.getString("nom_personne"));
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(CourProfDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return pr;
+    }
     public ArrayList<Personne> getAllEtudiants(Cour cour)
     {
         ArrayList<Personne> etudiants = new ArrayList<Personne>();

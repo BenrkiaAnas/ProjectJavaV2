@@ -5,9 +5,11 @@
  */
 package view;
 
+import Classes.Cour;
 import Classes.Filiere;
 import Classes.Niveau;
 import Classes.Personne;
+import Data.CourProfDao;
 import Data.FiliereDao;
 import Data.NiveauDao;
 import Data.PersonneDao;
@@ -266,7 +268,7 @@ public class cours extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
          
-        try {
+       /* try {
         Class.forName("com.mysql.jdbc.Driver");
             Connection con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3307/platforme","root","");
             String query=" INSERT INTO cours VALUES (?,?,?,?,?,?,?)";
@@ -291,7 +293,31 @@ public class cours extends javax.swing.JFrame {
         catch(Exception e)
        {
             JOptionPane.showMessageDialog( null, e);
-        }
+        }*/
+        
+         String nom_cour = namefield.getText();
+        CourProfDao courDao = new CourProfDao();
+        String description  = desctxtarea.getText();
+        String niveau = jComboBox1.getSelectedItem().toString();
+        String filiere = jComboBox2.getSelectedItem().toString();
+        String ens = jComboBox3.getSelectedItem().toString();
+        courDao.seConnecter();
+        PersonneDao personneDao = new PersonneDao();
+        personneDao.seConnecter();
+        Personne p1 = personneDao.findPersonne(1);
+        Personne p2=personneDao.getpersonnebyname(ens);
+
+        FiliereDao filiereDao = new FiliereDao();
+        filiereDao.seConnecter();
+        Filiere f = filiereDao.getFiliereByName(filiere);
+        
+        NiveauDao niveauDao = new NiveauDao();
+        niveauDao.seConnecter();
+        Niveau niveau1 = niveauDao.getNiveauByName(niveau);
+        
+        
+        
+        Cour cour = new Cour(nom_cour, description, niveau1, f, p1, p2);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
