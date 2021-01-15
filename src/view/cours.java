@@ -7,8 +7,10 @@ package view;
 
 import Classes.Filiere;
 import Classes.Niveau;
+import Classes.Personne;
 import Data.FiliereDao;
 import Data.NiveauDao;
+import Data.PersonneDao;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.ArrayList;
@@ -227,6 +229,13 @@ public class cours extends javax.swing.JFrame {
     public void ens()
     {
         jComboBox3.removeAllItems();
+        PersonneDao prdao=new PersonneDao();
+        prdao.seConnecter();
+         ArrayList<Personne> profs=prdao.getAllprofs();
+         for (int i = 0; i < profs.size(); i++) {
+            jComboBox3.addItem(profs.get(i).getNom());   
+        }
+        
         
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
