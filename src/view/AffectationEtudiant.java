@@ -6,9 +6,11 @@
 package view;
 
 import Classes.Cour;
+import Classes.EtudiantNiveau;
 import Classes.Participation;
 import Classes.Personne;
 import Data.CourProfDao;
+import Data.EtudiantNiveauDao;
 import Data.ParticipationDao;
 import Data.PersonneDao;
 import java.awt.Dimension;
@@ -184,11 +186,16 @@ public class AffectationEtudiant extends javax.swing.JFrame {
         
         Cour cour = courdao.getCourByName(prenom);
         
+        EtudiantNiveauDao etudiantNiveauDao = new EtudiantNiveauDao();
+
+        
         for (int i = 0; i < selecetdValues.size(); i++) {
             
-            Personne personne = personneDao.getPersonneByName(selecetdValues.get(i));
+            System.out.println(selecetdValues.get(i));
+            EtudiantNiveau etudiantNiveau = etudiantNiveauDao.getEtudiantNiveauByPersonne(selecetdValues.get(i));
             
-            Participation participation = new Participation(cour, personne);
+            
+            Participation participation = new Participation(cour, etudiantNiveau);
             
             participationDao.ajouter(participation);
         }

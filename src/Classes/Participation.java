@@ -13,14 +13,15 @@ import java.util.Objects;
  */
 public class Participation {
     Cour cour;
-    Personne etudiants;
+    EtudiantNiveau etudiant;
     Float note = null;
-    
-    
 
-    public Participation(Cour cour, Personne etudiants) {
+    public Participation(Cour cour, EtudiantNiveau etudiant) {
         this.cour = cour;
-        this.etudiants = etudiants;
+        this.etudiant = etudiant;
+    }
+
+    public Participation() {
     }
 
     public Cour getCour() {
@@ -31,12 +32,12 @@ public class Participation {
         this.cour = cour;
     }
 
-    public Personne getEtudiants() {
-        return etudiants;
+    public EtudiantNiveau getEtudiant() {
+        return etudiant;
     }
 
-    public void setEtudiants(Personne etudiants) {
-        this.etudiants = etudiants;
+    public void setEtudiant(EtudiantNiveau etudiant) {
+        this.etudiant = etudiant;
     }
 
     public Float getNote() {
@@ -46,15 +47,12 @@ public class Participation {
     public void setNote(Float note) {
         this.note = note;
     }
-    
-    
-
-    
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 89 * hash + Objects.hashCode(this.cour);
+        hash = 41 * hash + Objects.hashCode(this.cour);
+        hash = 41 * hash + Objects.hashCode(this.etudiant);
         return hash;
     }
 
@@ -73,7 +71,7 @@ public class Participation {
         if (!Objects.equals(this.cour, other.cour)) {
             return false;
         }
-        if (!Objects.equals(this.etudiants, other.etudiants)) {
+        if (!Objects.equals(this.etudiant, other.etudiant)) {
             return false;
         }
         return true;
@@ -81,14 +79,6 @@ public class Participation {
 
     @Override
     public String toString() {
-        return "Participation{" + "cour=" + cour + ", etudiants=" + etudiants + ", note=" + note + '}';
+        return "Participation{" + "cour=" + cour + ", etudiant=" + etudiant + ", note=" + note + '}';
     }
-    
-    
-
-   
-
-    
-    
-    
 }

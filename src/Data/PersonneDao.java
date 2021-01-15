@@ -62,7 +62,7 @@ public class PersonneDao {
             rst = req.executeQuery(requete);
             while (rst.next()) {                
                 
-                Personne prof = new Personne(rst.getInt("id_personne "), rst.getString("nom_personne"),rst.getString("prenom_personne"),rst.getString("login"),rst.getString("pwd"),rst.getInt("id_role"));
+                Personne prof = new Personne(rst.getInt("id_personne"), rst.getString("nom_personne"),rst.getString("prenom_personne"),rst.getString("login"),rst.getString("pwd"),rst.getInt("id_role"));
                 
                 profs.add(prof);
                 

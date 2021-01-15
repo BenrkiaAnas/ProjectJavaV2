@@ -41,7 +41,7 @@ public class ParticipationDao {
     
     public void ajouter(Participation participation)
     {
-        String requete = "INSERT INTO participation (id_cours,id_etud) values ('"+participation.getCour().getId_cours()+"','"+participation.getEtudiants().getId()+"');";
+        String requete = "INSERT INTO participation (id_cours,id_etud_nv) values ('"+participation.getCour().getId_cours()+"','"+participation.getEtudiant().getId_etd_nv()+"');";
         try {
             req.executeUpdate(requete);
         } catch (SQLException ex) {
