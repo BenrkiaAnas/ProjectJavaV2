@@ -135,12 +135,32 @@ public class PersonneDao {
         return p;
     }
     
+    
+    public Personne getPersonneById(int id)
+    {
+        Personne p = new Personne();
+        try {
+            String requete = "select * from personne where id_personne = '"+id+"'";
+            ResultSet rst;
+            rst = req.executeQuery(requete);
+            rst.next();
+            p.setId(rst.getInt("id_personne"));
+            p.setNom(rst.getString("nom_personne"));
+            p.setPrenom(rst.getString("prenom_personne"));
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(CourProfDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return p;
+    }
+    
     public ArrayList<Personne> getEtudiantsByCour(Cour cour)
     {
         ArrayList<Personne> etudiants = new ArrayList<Personne>();
         
         try {
-            String requete = "select * from participation p left outer join cours c on p.id_cours = c.id_cours left outer join personne per on p.id_etud = per.id_personne where c.id_cours = "+cour.getId_cours();
+            String requete = "select * from participation p left outer join cours c on p.id_cours = c.id_cours left outer join personne per on p.id_etud_nv = per.id_personne where c.id_cours = "+cour.getId_cours();
             ResultSet rst;
             rst = req.executeQuery(requete);
             while (rst.next()) {  

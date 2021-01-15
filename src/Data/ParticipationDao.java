@@ -6,6 +6,9 @@
 package Data;
 
 import Classes.Cour;
+import Classes.EtudiantNiveau;
+import Classes.Filiere;
+import Classes.Niveau;
 import Classes.Participation;
 import Classes.Personne;
 import java.sql.Connection;
@@ -74,13 +77,27 @@ public class ParticipationDao {
             
             while (rst.next()) { 
                 
-                Personne etudiants = new Personne(rst.getInt("id_personne"), rst.getString("nom_personne"), rst.getString("prenom_personne"));
+                FiliereDao filiereDao = new FiliereDao();
+                filiereDao.seConnecter();
+                Filiere filiere = filiereDao.getFiliereById(rst.getInt("id_filiere"));
+                
+                NiveauDao niveauDao = new NiveauDao();
+                niveauDao.seConnecter();
+                Niveau niveau = niveauDao.getNiveauById(rst.getInt("id_niveau"));
+                
+                PersonneDao personneDao = new PersonneDao();
+                personneDao.seConnecter();
+                Personne etudiant = personneDao.getPersonneById(rst.getInt("id_personne"));
+                
+                
+                EtudiantNiveau etudiantNiveau = new EtudiantNiveau(rst.getInt("id_etd_nv"), etudiant, niveau, filiere);
+                
                 
                 Cour cour = new Cour(rst.getInt("id_cours"), rst.getString("nom_cours"));
                 
                 
                 
-                Participation participate = new Participation(cour, etudiants);
+                Participation participate = new Participation(cour, etudiantNiveau);
                 
                 participate.setNote(rst.getFloat("note"));
                 

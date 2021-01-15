@@ -75,4 +75,23 @@ public class NiveauDao {
         
         return niveau;
     }
+    
+    public Niveau getNiveauById(int id)
+    {
+       Niveau niveau = new Niveau();
+        
+        try {
+            String requete = "select * from niveau where id_nv ='"+id+"'";
+            ResultSet rst;
+            rst = req.executeQuery(requete);
+            rst.next();
+            niveau.setId_nv(rst.getInt("id_nv"));
+            niveau.setNom_niveau(rst.getString("nom_nv"));
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(CourProfDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return niveau; 
+    }
 }

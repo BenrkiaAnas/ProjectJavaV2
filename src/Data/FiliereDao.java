@@ -75,4 +75,23 @@ public class FiliereDao {
         
         return filiere;
     }
+    
+    public Filiere getFiliereById(int id)
+    {
+        Filiere filiere = new Filiere();
+        
+        try {
+            String requete = "select * from filiere where id_filiere ='"+id+"'";
+            ResultSet rst;
+            rst = req.executeQuery(requete);
+            rst.next();
+            filiere.setId_filiere(rst.getInt("id_filiere"));
+            filiere.setNom_filiere(rst.getString("nom_filiere"));
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(CourProfDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return filiere;
+    }
 }
