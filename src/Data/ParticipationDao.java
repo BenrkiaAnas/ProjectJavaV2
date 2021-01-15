@@ -54,7 +54,7 @@ public class ParticipationDao {
     
     public void updateNote(Participation participation,float note)
     {
-        String requete = "UPDATE  participation SET note = "+note+" WHERE id_cours = '"+participation.getCour().getId_cours()+"' AND id_etud = '"+participation.getEtudiants().getId()+"'";
+        String requete = "UPDATE  participation SET note = "+note+" WHERE id_cours = '"+participation.getCour().getId_cours()+"' AND id_etud_nv = '"+participation.getEtudiant().getId_etd_nv()+"'";
         try {
             req.executeUpdate(requete);
         } catch (SQLException ex) {

@@ -6,9 +6,11 @@
 package view;
 
 import Classes.Cour;
+import Classes.EtudiantNiveau;
 import Classes.Participation;
 import Classes.Personne;
 import Data.CourProfDao;
+import Data.EtudiantNiveauDao;
 import Data.ParticipationDao;
 import Data.PersonneDao;
 import java.awt.Dimension;
@@ -293,14 +295,15 @@ public class note_prof extends javax.swing.JFrame {
         courDAO.seConnecter();
         Cour cour = courDAO.getCourByName(name_cour);
         
-        PersonneDao personneDao = new PersonneDao();
-        personneDao.seConnecter();
-        Personne personne = personneDao.getPersonneByName(etudiant);
+        EtudiantNiveauDao etudiantNiveauDao = new EtudiantNiveauDao();
+        etudiantNiveauDao.seConnecter();
+        
+        EtudiantNiveau etudiantNiveau = etudiantNiveauDao.getEtudiantNiveauByPersonne(etudiant);
         
         ParticipationDao participationDao = new ParticipationDao();
         participationDao.seConnecter();
         
-        Participation participation = new Participation(cour, personne);
+        Participation participation = new Participation(cour, etudiantNiveau);
         
         participationDao.updateNote(participation,note);
         

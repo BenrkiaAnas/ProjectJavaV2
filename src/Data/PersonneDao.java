@@ -73,6 +73,7 @@ public class PersonneDao {
         
         return profs;
     }
+    
     public Personne findPersonne(int id)
     {
         Personne p = new Personne();
@@ -91,7 +92,22 @@ public class PersonneDao {
         
         return p;
     }
-    
+    public Personne getpersonnebyname(String personnename)
+    {
+        Personne pr=new Personne();
+         try {
+            String requete = "select * from personne where nom_personne ='"+personnename+"'";
+            ResultSet rst;
+            rst = req.executeQuery(requete);
+            rst.next();
+            pr.setId(rst.getInt("id_personne"));
+            pr.setNom(rst.getString("nom_personne"));
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(CourProfDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return pr;
+    }
     public ArrayList<Personne> getAllEtudiants(Cour cour)
     {
         ArrayList<Personne> etudiants = new ArrayList<Personne>();
@@ -160,7 +176,7 @@ public class PersonneDao {
         ArrayList<Personne> etudiants = new ArrayList<Personne>();
         
         try {
-            String requete = "select * from participation p left outer join cours c on p.id_cours = c.id_cours left outer join personne per on p.id_etud_nv = per.id_personne where c.id_cours = "+cour.getId_cours();
+            String requete = "select * from participation p left outer join cours c on p.id_cours = c.id_cours left outer join etudiant_nv nv on p.id_etud_nv = nv.id_etd_nv left outer join personne per on nv.id_etud = per.id_personne where c.id_cours = "+cour.getId_cours();
             ResultSet rst;
             rst = req.executeQuery(requete);
             while (rst.next()) {  
