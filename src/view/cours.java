@@ -23,10 +23,13 @@ public class cours extends javax.swing.JFrame {
      * Creates new form cours
      */
     public cours() {
+        
         initComponents();
          Toolkit toolkit=getToolkit();
         Dimension size=toolkit.getScreenSize();
         setLocation(size.width/2-getWidth()/2,size.height/2-getHeight()/2); 
+        filiere();
+        niveau();
     }
 
     /**
@@ -207,7 +210,7 @@ public class cours extends javax.swing.JFrame {
         filiereDao.seConnecter();
         ArrayList<Filiere> filieres = filiereDao.getAllFiliere();
         for (int i = 0; i < filieres.size(); i++) {
-            jComboBox2.addItem(filieres.get(i).getNom_filiere());
+            jComboBox1.addItem(filieres.get(i).getNom_filiere());
             
         }  
     }
