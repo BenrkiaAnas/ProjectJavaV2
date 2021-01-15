@@ -30,7 +30,7 @@ public class CourProfDao {
     {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/platforme", "root", "");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/platforme", "root", "");
             req = conn.createStatement();
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println(e.getMessage());

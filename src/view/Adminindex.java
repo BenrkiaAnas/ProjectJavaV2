@@ -50,6 +50,11 @@ public class Adminindex extends javax.swing.JFrame {
         });
 
         jButton2.setText("ajout cours");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("log out");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -109,6 +114,13 @@ public class Adminindex extends javax.swing.JFrame {
         i.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        cours c=new cours();
+        this.setVisible(false);
+        c.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

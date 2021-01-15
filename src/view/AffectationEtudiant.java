@@ -11,6 +11,8 @@ import Classes.Personne;
 import Data.CourProfDao;
 import Data.ParticipationDao;
 import Data.PersonneDao;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;
@@ -29,6 +31,9 @@ public class AffectationEtudiant extends javax.swing.JFrame {
     public AffectationEtudiant() {
         initComponents();
         remplireCoursEtudiants();
+         Toolkit toolkit=getToolkit();
+        Dimension size=toolkit.getScreenSize();
+        setLocation(size.width/2-getWidth()/2,size.height/2-getHeight()/2);
     }
     
     public void remplireCoursEtudiants()
