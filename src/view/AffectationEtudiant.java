@@ -187,11 +187,11 @@ public class AffectationEtudiant extends javax.swing.JFrame {
         Cour cour = courdao.getCourByName(prenom);
         
         EtudiantNiveauDao etudiantNiveauDao = new EtudiantNiveauDao();
+        etudiantNiveauDao.seConnecter();
 
         
         for (int i = 0; i < selecetdValues.size(); i++) {
             
-            System.out.println(selecetdValues.get(i));
             EtudiantNiveau etudiantNiveau = etudiantNiveauDao.getEtudiantNiveauByPersonne(selecetdValues.get(i));
             
             

@@ -241,13 +241,13 @@ public class cours extends javax.swing.JFrame {
         try {
         Class.forName("com.mysql.jdbc.Driver");
             Connection con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3307/platforme","root","");
-            String query=" INSERT INTO cours VALUES (?,?,?,?,?,1,?)";
+            String query=" INSERT INTO cours VALUES (?,?,?,?,1,?)";
             PreparedStatement pst=con.prepareStatement(query);
-            pst.setString(2,namefield.getText());
-            pst.setString(3, desctxtarea.getText());
-            pst.setString(4, jComboBox1.getSelectedItem().toString());
-            pst.setString(5, jComboBox2.getSelectedItem().toString());
-            pst.setString(7, jComboBox3.getSelectedItem().toString());
+            pst.setString(1,namefield.getText());
+            pst.setString(2, desctxtarea.getText());
+            pst.setString(3, jComboBox1.getSelectedItem().toString());
+            pst.setString(4, jComboBox2.getSelectedItem().toString());
+            pst.setString(5, jComboBox3.getSelectedItem().toString());
             
         int c=pst.executeUpdate();
         if(c>0){

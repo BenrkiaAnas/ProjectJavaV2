@@ -64,7 +64,7 @@ public class ParticipationDao {
         ArrayList<Participation> participations = new ArrayList<Participation>();
         
         try {
-            String requete = "select * from participation p left outer join personne per on p.id_etud = per.id_personne left outer join cours c on p.id_cours = c.id_cours";
+            String requete = "select * from participation p left outer join etudiant_nv nv on p.id_etud_nv = nv.id_etd_nv left outer join personne per on nv.id_etud = per.id_personne left outer join cours c on p.id_cours = c.id_cours";
             ResultSet rst;
             rst = req.executeQuery(requete);
             List<String> data =   new ArrayList<String>();
