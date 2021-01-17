@@ -106,10 +106,7 @@ public class Affectation extends javax.swing.JFrame {
 
         etdtable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "id etd", "nom etd", "prenom etd"
@@ -119,10 +116,7 @@ public class Affectation extends javax.swing.JFrame {
 
         tabnv.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "id niveau", "niveau"
@@ -132,10 +126,7 @@ public class Affectation extends javax.swing.JFrame {
 
         tabfillier.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "id fillier", "fillier"
@@ -145,10 +136,7 @@ public class Affectation extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "id etudiant", "id niveau", "id fillier"
@@ -177,7 +165,7 @@ public class Affectation extends javax.swing.JFrame {
             }
         });
 
-        jButton8.setText("affiche affictation");
+        jButton8.setText("affiche affectation");
 
         jButton9.setText("back");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
