@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  * @author lenovo
  */
 public class Index extends javax.swing.JFrame {
-
+    public static int id_personne;
     /**
      * Creates new form Index
      */
@@ -151,7 +151,8 @@ public class Index extends javax.swing.JFrame {
             pst.setString(3, String.valueOf(jComboBox1.getSelectedItem()));
              ResultSet rs=pst.executeQuery();
              if(rs.next())
-             {              
+             {  
+                 id_personne = rs.getInt("id_personne");
                   if(jComboBox1.getSelectedIndex()==0)
                  {
                     Adminindex adi=new Adminindex();
@@ -167,7 +168,7 @@ public class Index extends javax.swing.JFrame {
                  }
                  else
                  {
-                    Etdindex ei=new Etdindex();
+                    note_etudiant ei=new note_etudiant();
                     ei.setVisible(true);
                     this.setVisible(false);
                  }

@@ -5,6 +5,8 @@
  */
 package view;
 
+import Classes.Personne;
+import Data.PersonneDao;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
@@ -18,6 +20,10 @@ public class Adminindex extends javax.swing.JFrame {
      * Creates new form Adminindex
      */
     public Adminindex() {
+        PersonneDao personneDao = new PersonneDao();
+        personneDao.seConnecter();
+        Personne personne = personneDao.findPersonne(Index.id_personne);
+        jLabel1.setText("Bonjour "+personne.getPrenom()+" "+personne.getNom());
         initComponents();
         Toolkit toolkit=getToolkit();
         Dimension size=toolkit.getScreenSize();
@@ -42,21 +48,21 @@ public class Adminindex extends javax.swing.JFrame {
 
         jLabel1.setText("admin");
 
-        jButton1.setText("ajout profil");
+        jButton1.setText("Ajout profilE");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("ajout cours");
+        jButton2.setText("Ajouter cours");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        jButton3.setText("log out");
+        jButton3.setText("Se déconnecter");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -70,31 +76,31 @@ public class Adminindex extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(41, 41, 41))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(161, 161, 161)
-                        .addComponent(jButton3))
+                        .addGap(177, 177, 177)
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(181, 181, 181)
-                        .addComponent(jLabel1)))
+                        .addGap(147, 147, 147)
+                        .addComponent(jButton3)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(35, 35, 35)
                 .addComponent(jLabel1)
-                .addGap(71, 71, 71)
+                .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
                 .addComponent(jButton3)
-                .addGap(69, 69, 69))
+                .addGap(65, 65, 65))
         );
 
         pack();

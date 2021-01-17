@@ -96,7 +96,7 @@ public class PersonneDao {
     {
         Personne pr=new Personne();
          try {
-            String requete = "select * from personne where nom_personne ='"+personnename+"'";
+            String requete = "select * from personne where prenom_personne ='"+personnename+"'";
             ResultSet rst;
             rst = req.executeQuery(requete);
             rst.next();
@@ -193,5 +193,7 @@ public class PersonneDao {
         
         return etudiants;
     }
+    
+    
     
 }
