@@ -47,7 +47,7 @@ public class CourProf extends javax.swing.JFrame {
         String[] columnNames = {"Nom Du Cours","Nom Professeur","Prenom Professeur","Niveau","Filiere","Description"};
         CourProfDao courDAO = new CourProfDao();
         courDAO.seConnecter();
-        ArrayList<Cour> listCours = courDAO.listeCour();
+        ArrayList<Cour> listCours = courDAO.listeCour(Index.id_personne);
         
         NiveauDao niveauDao = new NiveauDao();
         niveauDao.seConnecter();
@@ -105,8 +105,8 @@ public class CourProf extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<String>();
-        jComboBox2 = new javax.swing.JComboBox<String>();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -134,14 +134,14 @@ public class CourProf extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jButton2.setText("Back");
+        jButton2.setText("Retour");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Log out");
+        jButton3.setText("Se déconnecter");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -159,14 +159,14 @@ public class CourProf extends javax.swing.JFrame {
 
         jLabel4.setText("Filiere");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel5.setText("Description");
 
@@ -183,7 +183,7 @@ public class CourProf extends javax.swing.JFrame {
                 .addComponent(jButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton3)
-                .addGap(34, 34, 34))
+                .addGap(19, 19, 19))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -260,8 +260,8 @@ public class CourProf extends javax.swing.JFrame {
         courDao.seConnecter();
         PersonneDao personneDao = new PersonneDao();
         personneDao.seConnecter();
-        Personne p1 = personneDao.findPersonne(2);
-        Personne p2 = personneDao.findPersonne(2);
+        Personne p1 = personneDao.findPersonne(Index.id_personne);
+        Personne p2 = personneDao.findPersonne(Index.id_personne);
         
         FiliereDao filiereDao = new FiliereDao();
         filiereDao.seConnecter();

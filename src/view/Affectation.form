@@ -224,7 +224,7 @@
         <Component class="javax.swing.JTable" name="etdtable">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="3" rowCount="4">
+              <Table columnCount="3" rowCount="0">
                 <Column editable="true" title="id etd" type="java.lang.Object"/>
                 <Column editable="true" title="nom etd" type="java.lang.Object"/>
                 <Column editable="true" title="prenom etd" type="java.lang.Object"/>
@@ -266,7 +266,7 @@
         <Component class="javax.swing.JTable" name="tabnv">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="2" rowCount="4">
+              <Table columnCount="2" rowCount="0">
                 <Column editable="true" title="id niveau" type="java.lang.Object"/>
                 <Column editable="true" title="niveau" type="java.lang.Object"/>
               </Table>
@@ -302,7 +302,7 @@
         <Component class="javax.swing.JTable" name="tabfillier">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="2" rowCount="4">
+              <Table columnCount="2" rowCount="0">
                 <Column editable="true" title="id fillier" type="java.lang.Object"/>
                 <Column editable="true" title="fillier" type="java.lang.Object"/>
               </Table>
@@ -338,7 +338,7 @@
         <Component class="javax.swing.JTable" name="jTable1">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="3" rowCount="4">
+              <Table columnCount="3" rowCount="0">
                 <Column editable="true" title="id etudiant" type="java.lang.Object"/>
                 <Column editable="true" title="id niveau" type="java.lang.Object"/>
                 <Column editable="true" title="id fillier" type="java.lang.Object"/>
@@ -396,7 +396,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton8">
       <Properties>
-        <Property name="text" type="java.lang.String" value="affiche affictation"/>
+        <Property name="text" type="java.lang.String" value="affiche affectation"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton8ActionPerformed"/>

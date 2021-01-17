@@ -5,9 +5,10 @@
  */
 package view;
 
-import com.mysql.jdbc.Connection;
+
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -111,10 +112,7 @@ public class Affectation extends javax.swing.JFrame {
 
         etdtable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "id etd", "nom etd", "prenom etd"
@@ -124,10 +122,7 @@ public class Affectation extends javax.swing.JFrame {
 
         tabnv.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "id niveau", "niveau"
@@ -137,10 +132,7 @@ public class Affectation extends javax.swing.JFrame {
 
         tabfillier.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "id fillier", "fillier"
@@ -150,10 +142,7 @@ public class Affectation extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "id etudiant", "id niveau", "id fillier"
@@ -182,12 +171,16 @@ public class Affectation extends javax.swing.JFrame {
             }
         });
 
+<<<<<<< HEAD
         jButton8.setText("affiche affictation");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
             }
         });
+=======
+        jButton8.setText("affiche affectation");
+>>>>>>> 948c0a338f25720202d4efecb32ed80e55b461b5
 
         jButton9.setText("back");
         jButton9.addActionListener(new java.awt.event.ActionListener() {

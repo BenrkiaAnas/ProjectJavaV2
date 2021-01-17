@@ -115,7 +115,7 @@ public class note_prof extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("log out");
+        jButton1.setText("Se déconnecter");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -141,7 +141,7 @@ public class note_prof extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel2.setText("cour");
+        jLabel2.setText("Cour");
 
         jLabel3.setText("etudiant");
 

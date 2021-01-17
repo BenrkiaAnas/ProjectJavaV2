@@ -49,12 +49,12 @@ public class CourProfDao {
         }
     }
     
-    public ArrayList<Cour> listeCour()
+    public ArrayList<Cour> listeCour(int id)
     {
         ArrayList<Cour> cours = new ArrayList<Cour>();
         
         try {
-            String requete = "select * from cours c left outer join personne p on c.id_create = p.id_personne left outer join niveau n on c.id_niveau = n.id_nv left outer join filiere f on c.id_filiere = f.id_filiere";
+            String requete = "select * from cours c left outer join personne p on c.id_create = p.id_personne left outer join niveau n on c.id_niveau = n.id_nv left outer join filiere f on c.id_filiere = f.id_filiere where p.id_personne = "+id;
             ResultSet rst;
             rst = req.executeQuery(requete);
             while (rst.next()) {                

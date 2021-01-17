@@ -118,6 +118,37 @@ public class ParticipationDao {
         return participations;
     }
     
+    public ArrayList<Participation> getEtudiantsNotes(int id)
+    {  
+        ArrayList<Participation> participations = new ArrayList<Participation>();
+        try {
+            String requete = "select * from participation p left outer join etudiant_nv nv on p.id_etud_nv = nv.id_etd_nv left outer join cours c on p.id_cours = c.id_cours left outer join niveau n on nv.id_nv = n.id_nv left outer join filiere f on nv.id_filiere = f.id_filiere left outer join personne per on nv.id_etud = per.id_personne where per.id_personne = "+id;
+            ResultSet rst;
+            rst = req.executeQuery(requete);
+            
+            while (rst.next()) {
+                
+                Cour cour = new Cour(rst.getInt("id_cours"), rst.getString("nom_cours"));
+                Personne personne = new Personne(rst.getInt("id_personne"), rst.getString("nom_personne"), rst.getString("prenom_personne"));
+                Niveau niveau = new Niveau(rst.getInt("id_nv"), rst.getString("nom_nv"));
+                Filiere filiere = new Filiere(rst.getInt("id_filiere"), rst.getString("nom_filiere"));
+                EtudiantNiveau etudiantNiveau = new EtudiantNiveau(rst.getInt("id_etd_nv"), personne, niveau, filiere);
+
+                Participation participation = new Participation(cour, etudiantNiveau);
+                
+                participation.setNote(rst.getFloat("note"));
+                
+                participations.add(participation);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(CourProfDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return participations;
+        
+    }
+    
     
     
     
