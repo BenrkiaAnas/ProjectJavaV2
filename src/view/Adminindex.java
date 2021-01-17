@@ -20,14 +20,21 @@ public class Adminindex extends javax.swing.JFrame {
      * Creates new form Adminindex
      */
     public Adminindex() {
-        PersonneDao personneDao = new PersonneDao();
-        personneDao.seConnecter();
-        Personne personne = personneDao.findPersonne(Index.id_personne);
-        jLabel1.setText("Bonjour "+personne.getPrenom()+" "+personne.getNom());
+        
         initComponents();
         Toolkit toolkit=getToolkit();
         Dimension size=toolkit.getScreenSize();
         setLocation(size.width/2-getWidth()/2,size.height/2-getHeight()/2);
+        showData();
+    }
+    
+    public void showData()
+    {
+        PersonneDao personneDao = new PersonneDao();
+        personneDao.seConnecter();
+        Personne personne = personneDao.findPersonne(Index.id_personne);
+        System.out.println(Index.id_personne);
+        jLabel1.setText("Bonjour "+personne.getPrenom()+" "+personne.getNom());
     }
 
     /**
@@ -48,14 +55,14 @@ public class Adminindex extends javax.swing.JFrame {
 
         jLabel1.setText("admin");
 
-        jButton1.setText("Ajout profilE");
+        jButton1.setText("Ajouter profile");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Ajouter cours");
+        jButton2.setText("Affectation niveau ");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -76,25 +83,22 @@ public class Adminindex extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(41, 41, 41))
             .addGroup(layout.createSequentialGroup()
+                .addGap(147, 147, 147)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(177, 177, 177)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(147, 147, 147)
-                        .addComponent(jButton3)))
+                    .addComponent(jLabel1)
+                    .addComponent(jButton3))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(36, 36, 36)
                 .addComponent(jLabel1)
-                .addGap(55, 55, 55)
+                .addGap(54, 54, 54)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
@@ -123,7 +127,7 @@ public class Adminindex extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        cours c=new cours();
+        Affectation c=new Affectation();
         this.setVisible(false);
         c.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
