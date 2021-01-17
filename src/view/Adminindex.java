@@ -49,7 +49,7 @@ public class Adminindex extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("ajout cours");
+        jButton2.setText("affectation niveau ");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -70,7 +70,7 @@ public class Adminindex extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(41, 41, 41))
             .addGroup(layout.createSequentialGroup()
@@ -117,7 +117,7 @@ public class Adminindex extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        cours c=new cours();
+        Affectation c=new Affectation();
         this.setVisible(false);
         c.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
