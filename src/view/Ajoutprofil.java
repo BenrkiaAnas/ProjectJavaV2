@@ -9,9 +9,10 @@ package view;
 
 import Classes.Personne;
 import Data.Dao;
-import com.mysql.jdbc.Connection;
+
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
